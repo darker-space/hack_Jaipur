@@ -1,0 +1,94 @@
+</head>
+
+<body>
+    <nav class="nav navbar navbar-expand-md shadow-lg  rounded mt-0  bg-white fixed-top">
+        <div class="pl-3 " style="font-size: 1.4em;" id="side-menu"> <i class="fas fa-bars"></i></div>
+        <div class="container">
+            <div class="navbar-header ">
+                <li class="nav-item">
+                    <a href="/hospital" class="nav-link navbar-brand " style="font-size: 2em;"> <span id="brandd"><i class="fas fa-cocktail"></i> rElax</a></span>
+                </li>
+            </div>
+
+
+            <div class="nav navbar-right">
+                <%  if(!currUser){ %>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link"><i class="fas fa-user-astronaut"></i> Login </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/signup" class="nav-link"><i class="fas fa-user-plus"></i> Signup</a>
+                    </li>
+                    <% } else{%>
+
+                        <li class="nav-item">
+                            <a href="/hospital/new" class="nav-link"><i class="fab fa-opencart"></i> Add chillax hospital </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/user/logout" class="nav-link"><i class="far fa-user"></i> Logout</a>
+                        </li>
+                        <% } %>
+            </div>
+
+
+        </div>
+
+    </nav>
+    <div id="bdy">
+        <div id="sidenav" class="animate__animated animate__slideInLeft">
+
+            <div class="fluid" id="list">
+                <div class="user-sidebar shadow-sm list-group-item ">
+                    <div class="row">
+                        <div class="col-6">
+                            <i id="dp" class="fas fa-user-astronaut"></i>
+                        </div>
+                        <div class="col-6">
+                            <div class="fluid p-2">
+                                <i id="usertype" class="fas fa-circle"></i>
+                                <%  if(!currUser){ %>
+                                    User
+                                    <% } else { %>
+
+                                        <%if(currUser && currUser.usertype=="user"){ %>
+                                            Traveller
+                                            <% } else{  %>
+                                                Owner
+                                                <% } %>
+                                                    <% } %>
+
+
+                            </div>
+                            <div class="fluid p-2 ">
+                                <i id="username" class="fas fa-circle"></i>
+                                <%  if(!currUser){ %>
+                                    Name
+                                    <% } else { %>
+                                        <%= currUser.name %>
+                                            <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%if(currUser){ %>
+                    <div class="shadow-sm list-group-item ">
+                        <a href="/user/<%=currUser._id%>/">View your Profile</a>
+                    </div>
+                    <% } %>
+                        <%if(currUser&&currUser.usertype!="user"){%>
+                            <div class="shadow-sm list-group-item ">
+                                <a href="/user/<%=currUser._id%>/#hospital"> See your added hospitals!</a>
+                            </div>
+                            <div class="shadow-sm list-group-item ">
+                                <a href="/hospital/new"> Create hospitalground!</a>
+                            </div>
+                            <% } %>
+                                <div class="shadow-sm list-group-item ">
+                                    About
+                                </div>
+
+            </div>
+
+        </div>
+
+        <div id="mainbody">

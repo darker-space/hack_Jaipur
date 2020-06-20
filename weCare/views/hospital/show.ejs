@@ -1,0 +1,158 @@
+<%- include("../partials/header1.ejs") %>
+    <title>hospital Grounds</title>
+    <link rel="stylesheet" href="/stylesheets/showhospital.css">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
+    <%-include("../partials/header2.ejs")%>
+
+        <div class="m-2 row justify-content-around">
+            <div class="col-8">
+                <a href="/hospital" class="btn btn-info container-fluid">Back</a>
+            </div>
+        </div>
+
+
+        <hr class="py-1 my-2">
+
+        <div class=" row container-fluid justify-content-around" id="main">
+
+            <div class="col-12 col-xl-4 order-xl-1 order-2 p-lg-2">
+                <div class="container shadow-lg ">
+                    <div><button class="btn bg-light container-fluid my-2"> Map </button></div>
+                    <!-- <iframe class="container-fluid" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0-K0lp_Ej9tIERX9oxZDNigwR73HNt-Q
+                  &q=Space+Needle,Seattle+WA" allowfullscreen> -->
+                    <iframe class="container-fluid" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=kasol&key=AIzaSyB0-K0lp_Ej9tIERX9oxZDNigwR73HNt-Q" allowfullscreen></iframe>
+                    </iframe>
+                </div>
+                <div class="container mt-5 p-0 shadow-lg">
+                    <ul class="list-group side-info">
+                        <button class="btn btn-success list-group-item bg-success">info </button>
+                        <li class="list-group-item">Cras justo odio</li>
+                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                        <li class="list-group-item">Morbi leo risus</li>
+                        <li class="list-group-item">Porta ac consectetur ac</li>
+                        <li class="list-group-item">Vestibulum at eros</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12  order-xl-2 order-1 col-xl-8">
+
+                <div class="card shadow-lg  p-lg-2 wow animate__animated animate__bounceInUp " id="<%=hospital._id %> ">
+                    <div class="m-1 p-2 shadow-sm d-flex justify-content-between align-items-center" id="header">
+                        <div><i id="dp2" class="fas fa-hiking"></i></div>
+                        <div>
+                            Owner:
+                            <%= hospital.authorName %><br> Created at:
+                                <%= hospital.createdAt.toDateString() %>
+                        </div>
+                    </div>
+
+
+
+                    <div id="demo" class="carousel slide container-fluid" data-ride="carousel" data-interval="10000">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="card-img-top" src="<%=hospital.picture%>">
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container-fluid">
+                                    <%- //hospital.video%>
+                                        <iframe width="560" height="315" class="container-fluid m-0 mt-3 vidd" src="https://www.youtube.com/embed/r3fE6FQT82s?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+
+                    </div>
+
+                    <div class="card-header ">
+                        <span class="d-flex justify-content-center"><%= hospital.name %></span>
+                    </div>
+                    <div class="card-body ">
+                        <%= hospital.content %>
+                    </div>
+
+                    <div class="card-footer shadow-md">
+                        <div class="row justify-content-around text-light">
+                            <span class="col-5 btn btn-light">
+                                    <form  action="/hospital/<%=hospital._id%>/like" method="POST">
+                                    <button class="container-fluid"><i class="far fa-heart" id="like"></i>
+                                   
+                                    <%= hospital.likesNo %> Likes
+                                    </button>
+                                </form> 
+                                </span>
+                            <span class="col-5 btn btn-light" id="show-comments">
+                                   
+                                    <i class="fas fa-comments" id="comment"></i>
+                                    <%= hospital.commentNo %> Comments
+                                </span>
+                        </div>
+                    </div>
+                    <div class="container d-none" id="view-comments">
+                        <% hospital.comment.forEach(function(comment){ %>
+                            <div class="row shadow-lg p-2 m-2">
+                                <div class="col-3">
+
+                                    <b><span class="text-danger"> <%=comment.authorName %></span></b>
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                <div class="col-9">
+                                    <span id="comment-content"><%=comment.content %></span><br>
+
+                                    <span class="d-flex justify-content-end text-danger">
+                                        <% if(currUser&&currUser._id.equals(comment.author)){%>
+                                            <form action="/hospital/<%=hospital._id %>/comment/<%=comment._id%>?_method=DELETE" method="POST"><button><i id="comment-del" class="far fa-trash-alt"></i></button>  </form>                                      
+                                        <%console.log("ooooooooo ",hospital._id, comment._id) } %> </span>
+                                    <span class="d-flex justify-content-end text-dark">-created at: <%=comment.createdAt.toDateString() %></span>
+                                </div>
+                            </div>
+                            <% } )%>
+                    </div>
+                    <div class="container  m-3">
+                        <form action="/hospital/<%=hospital._id%>/comment" method="POST">
+                            <div class="row">
+
+                                <div class="col-1"><i class="fas fa-comments" id="comment2"></i></div>
+                                <div class="col-10 pr-3"> <input type="text" class="fluid form-control" name="content" placeholder="Add comments........"></div>
+                                <div class="col-1"><button id="tick-btn " class="text-success"><i class="fas fa-check-circle" id="tick"></i></button></div>
+                            </div>
+
+                        </form>
+                    </div>
+                    <% if(currUser){console.log("cuuruser id is "+currUser._id); console.log("hospital author is "+hospital.author);} %>
+                        <% if(currUser&&currUser._id.equals(hospital.author)){%>
+                            <div class="m-4 row justify-content-around">
+                                <div class="col-4">
+                                    <form><button class="btn btn-warning text-dark container-fluid">Edit</button></form>
+                                </div>
+                                <div class="col-4">
+                                    <form action="/hospital/<%=hospital._id %>?_method=DELETE" method="POST"><button class="btn btn-danger  container-fluid">Delete</button></form>
+                                </div>
+                            </div>
+                            <% } %>
+                </div>
+
+            </div>
+
+        </div>
+
+        <%- include("../partials/footer1.ejs") %>
+            <script type="text/javascript" src="/jsPage/hospital.js"></script>
+            <%- include("../partials/footer2.ejs") %>

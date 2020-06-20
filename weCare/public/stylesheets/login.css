@@ -1,0 +1,38 @@
+#icon {
+    font-size: 450px;
+    width: 100%;
+}
+
+form {
+    line-height: 25px;
+    font-size: 1.4em;
+}
+
+.label {
+    width: 100%;
+}
+
+input {
+    border: none;
+}
+
+.form1 {
+    /* width: 70%; */
+    border-radius: 2em;
+    padding: 5px;
+}
+
+.form-group {
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 1em;
+}
+
+.button {
+    width: 100%;
+}

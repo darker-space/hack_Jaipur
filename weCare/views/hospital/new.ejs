@@ -1,0 +1,43 @@
+<%- include("../partials/header1.ejs") %>
+    <title> Create hospital!</title>
+    <%-include("../partials/header2.ejs")%>
+
+        <div class="jumbotron fluid bg-danger text-white display-4 py-4">
+            <span class="d-flex justify-content-center">
+         Woh..! Lets create Your hospitalground..!
+      </span>
+        </div>
+        <div class="container-fluid ">
+            <!-- style="background-image:url(https://images.unsplash.com/photo-1547516961-3e7ed5ec4ca1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80); background-repeat: no-repeat; background-size: cover;"> -->
+            <div class="row m-5 p-5">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <form class="text-white" action="/hospital" method="POST">
+                        <div class="form-group">
+                            <label>hospitalground-name</label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="hospitalground-name" name="name" required>
+                        </div>
+                        <div class=" form-group">
+                            <label>Image url</label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="image url" name="picture" required>
+                        </div>
+                        <div class="form-group ">
+                            <label>Video url</label>
+                            <input class="form-control form1  border-dark" type="text" placeholder="video url " name="video" required>
+                        </div>
+                        <div class="form-group ">
+                            <label>Tell us something about your hospital!</label>
+                            <div><textarea class="container-fluid" placeholder="Write here" name="content" rows="5"></textarea></div>
+                        </div>
+                        <div class="mt-2">
+                            <button class="btn btn-danger container-fluid">Submits</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2"></div>
+
+            </div>
+        </div>
+
+        <%- include("../partials/footer1.ejs")%>
+            <%- include("../partials/footer2.ejs") %>

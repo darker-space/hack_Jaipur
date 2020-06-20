@@ -10,6 +10,7 @@ var hospitalSchema = mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
+    doctorNo: Number,
     comment: [commentSchema],
     commentNo: { type: Number, default: 0 },
     likes: [String],

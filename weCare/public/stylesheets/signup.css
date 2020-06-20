@@ -1,0 +1,44 @@
+#icon {
+    font-size: 120px;
+    /* width: 50%; */
+    margin-left: 150px;
+    margin-top: 400px;
+    border-radius: 50%;
+    height: 80%;
+}
+
+form {
+    line-height: 25px;
+    font-size: 1.4em;
+}
+
+.label {
+    width: 100%;
+}
+
+input {
+    border: none;
+}
+
+.form1 {
+    /* width: 70%; */
+    border-radius: 2em;
+    padding: 5px;
+}
+
+.form-group {
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.button {
+    width: 100%;
+}

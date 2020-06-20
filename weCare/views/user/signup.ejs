@@ -1,0 +1,101 @@
+<%- include("../partials/header1.ejs") %>
+    <title>hospital Grounds</title>
+    <link rel="stylesheet" href="/stylesheets/signup.css">
+    <%- include("../partials/header2.ejs") %>
+
+        <div class="container" id="login">
+
+            <div class="jumbotron fluid bg-dark text-white display-4 py-4">
+
+                <span class="row justify-content-around ">
+                    <span class="col-1 pr-5 mr-5"><i class="fas fa-clinic-medical"></i></span>
+                <span class="col-7"> Signup here!</span>
+                </span>
+            </div>
+
+
+            <form class="container pl-5 pt-0 pb-5 mb-5" action="/user/signup/" method="POST">
+                <div class=" row container border-4 border-secondary">
+                    <div class="col-12">
+                        <div class=" row justify-content-between border border-secondary p-3" style="border-radius:20px;font-size:0.9em ">
+                            <div class="col-12 mb-3">Signup as</div>
+                            <div class="col-lg-3 col-12"> <label class="d-flex"><input class=" form1  border-dark as" type="radio"  name="signupAs" value="patient" checked>Patient</label></div>
+                            <div class="col-lg-3 col-12"> <label class="d-flex"><input class=" form1  border-dark as" type="radio"  name="signupAs" value="owner" >Hospital Authority</label></div>
+                            <div class="col-lg-3 col-12"> <label class="d-flex"><input class=" form1  border-dark as" type="radio" id="doctor"  name="signupAs" value="doctor" >Doctor</label> </div>
+                            <div class="col-lg-3 col-12"> <label class="d-flex"><input class=" form1  border-dark as" type="radio"  name="signupAs" value="supplier" >Supplier</label></div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12 mt-4 ">
+
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="name" name="name" required>
+                        </div>
+                        <div class=" form-group">
+                            <label>Email</label>
+                            <input class="form-control form1 border-dark" type="email" placeholder="email" name="username" required>
+                        </div>
+                        <div class="form-group ">
+                            <label>Password</label>
+                            <input class="form-control form1  border-dark" type="password" placeholder="password " name="password" required>
+                        </div>
+
+                    </div>
+                    <div class=" col-lg-3 d-none d-lg-block mt-5 p-5 bg-danger text-light text-center" id="icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+
+                    <div class=" col-lg-6 col-12 mt-4 pt-3 border-dark bg-light d-none" id="doc" style="font-size:0.8em; border: 1.5px solid; border-radius: 1.5em;">
+                        <div class="text-center display-4">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="form-group ">
+                            <label>Age</label>
+                            <input class="form-control form1 border-dark " type="number" name="age" required>
+                        </div>
+                        <div class="form-inline mb-4">
+                            <div>Gender: </div>
+                            <input class="form-control ml-4 mr-1 " type="radio" name="gender " value="male "> male
+                            <input class="form-control ml-3 mr-1 " type="radio" name="gender " value="female " checked> female
+                            <input class="form-control ml-3 mr-1 " type="radio" name="gender " value="other "> other
+
+                        </div>
+                        <div class="form-inline mb-4">
+                            <div>Qualification: </div>
+                            <input class="form-control ml-4 mr-1 " type="checkbox" name="MBBS" checked value="yes" disabled>MBBS
+                            <input class="form-control ml-3 mr-1 " type="checkbox" name="MD" value="yes"> MD
+                            <input class="form-control ml-3 mr-1 " type="checkbox" name="DM" value="yes"> DM
+
+                        </div>
+                        <div class="form-group ">
+                            <label>Special Achievements</label>
+                            <div><textarea class="container-fluid" placeholder="Write yourachievements" name="content" rows="2"></textarea></div>
+                        </div>
+                        <div class="form-group">
+                            <label>Specialist in </label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="General Physician" name="specialist" required>
+                        </div>
+
+                        <div class="form-group ">
+                            <label>Years of experience</label>
+                            <input class="form-control form1 border-dark " type="number" name="experience" required>
+                        </div>
+                    </div>
+                    <div class="mt-2 col-12 ">
+                        <button class="btn btn-danger container-fluid ">Submits</button>
+                    </div>
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+
+        <%- include("../partials/footer1.ejs") %>
+            <script type="text/javascript " src="/jsPage/signup.js ">
+            </script>
+            <%- include("../partials/footer2.ejs") %>

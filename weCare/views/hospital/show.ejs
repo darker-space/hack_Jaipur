@@ -7,7 +7,7 @@
 
         <div class="m-2 row justify-content-around">
             <div class="col-8">
-                <a href="/hospital" class="btn btn-info container-fluid">Back</a>
+                <a href="/hospital" class="btn btn-info container-fluid"> Back</a>
             </div>
         </div>
 
@@ -19,31 +19,68 @@
             <div class="col-12 col-xl-4 order-xl-1 order-2 p-lg-2">
                 <div class="container shadow-lg ">
                     <div><button class="btn bg-light container-fluid my-2"> Map </button></div>
-                    <!-- <iframe class="container-fluid" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB0-K0lp_Ej9tIERX9oxZDNigwR73HNt-Q
-                  &q=Space+Needle,Seattle+WA" allowfullscreen> -->
-                    <iframe class="container-fluid" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=kasol&key=AIzaSyB0-K0lp_Ej9tIERX9oxZDNigwR73HNt-Q" allowfullscreen></iframe>
-                    </iframe>
+                    <iframe class="container-fluid" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<%=hospital.address%>&key=AIzaSyB0-K0lp_Ej9tIERX9oxZDNigwR73HNt-Q" allowfullscreen></iframe>
+                    <button class="btn my-2 container-fluid border bg-light border-5 ">
+                        <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
+                        </h5>
+                    </button>
                 </div>
                 <div class="container mt-5 p-0 shadow-lg">
                     <ul class="list-group side-info">
+
                         <button class="btn btn-success list-group-item bg-success">info </button>
-                        <li class="list-group-item">Cras justo odio</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
-                        <li class="list-group-item">Vestibulum at eros</li>
+                        <b>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "> <i class="fas fa-lungs-virus"></i> Does treat Corona ? </span> &emsp; <span class="pull-right text-danger"><%=hospital.isCorona%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "><i class="fas fa-procedures"></i>  Total no of Beds </span> &emsp; <span class="pull-right "><%=hospital.totalBed%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "><i class="fas fa-procedures"></i> Available Beds </span> &emsp; <span class="pull-right text-danger"><%=hospital.availBed%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "><i class="fas fa-rupee-sign"></i> Cost per night </span> &emsp; <span class="pull-right text-danger"><i class="fas fa-rupee-sign"></i> <%=hospital.cost%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "> <i class="fas fa-user-md"></i> Total no of Doctors </span> &emsp; <span class="pull-right "><%=hospital.totalDoc%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "> <i class="fas fa-user-md"></i> Total available Doctors </span> &emsp; <span class="pull-right text-danger"><%=hospital.availDoc%></span>
+                        </li>
+                        
+                    </b>
                     </ul>
                 </div>
+
+                <div class="container mt-5 p-0 shadow-lg">
+                    <ul class="list-group side-info">
+
+                        <button class="btn btn-success list-group-item bg-primary">Contact </button>
+                        <b>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "><i class="fas fa-envelope-open"></i>  Email: </span> &emsp; <span class="pull-right text-danger"><%=hospital.isCorona%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "><i class="fas fa-phone"></i> Phone no </span> &emsp; <span class="pull-right "><%=hospital.phoneNo%></span>
+                        </li>
+                        <li class="list-group-item justify-content-between">
+                            <span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
+                        </li>
+                             
+                    </b>
+                    </ul>
+                </div>
+
             </div>
             <div class="col-12  order-xl-2 order-1 col-xl-8">
 
                 <div class="card shadow-lg  p-lg-2 wow animate__animated animate__bounceInUp " id="<%=hospital._id %> ">
                     <div class="m-1 p-2 shadow-sm d-flex justify-content-between align-items-center" id="header">
-                        <div><i id="dp2" class="fas fa-hiking"></i></div>
+                        <div><i class="fas fa-hospital-alt" id="dp2"></i> Hospital</div>
                         <div>
-                            Owner:
-                            <%= hospital.authorName %><br> Created at:
-                                <%= hospital.createdAt.toDateString() %>
+                            Added at:
+                            <%= hospital.createdAt.toDateString() %>
                         </div>
                     </div>
 
@@ -62,13 +99,11 @@
                             <div class="carousel-item active">
                                 <img class="card-img-top" src="<%=hospital.picture%>">
                             </div>
-                            <div class="carousel-item">
+                            <!-- <div class="carousel-item">
                                 <div class="container-fluid">
-                                    <%- //hospital.video%>
-                                        <iframe width="560" height="315" class="container-fluid m-0 mt-3 vidd" src="https://www.youtube.com/embed/r3fE6FQT82s?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- Left and right controls -->
@@ -85,7 +120,7 @@
                         <span class="d-flex justify-content-center"><%= hospital.name %></span>
                     </div>
                     <div class="card-body ">
-                        <%= hospital.content %>
+                        <%= hospital.description %>
                     </div>
 
                     <div class="card-footer shadow-md">

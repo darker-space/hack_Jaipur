@@ -96,39 +96,41 @@
                     <div class="col-xl-4 col-lg-6">
                         <div class="card animate__animated animate__bounceInUp shadow-lg wow fadeInUp  m-0 m-md-1 p-0 p-md-3 " id="<%=hospital._id %> ">
                             <div class="m-1 p-2 shadow-sm d-flex justify-content-between align-items-center" id="header">
-                                <div><i id="dp2" class="fas fa-hiking"></i></div>
-                                <div>
-                                    Owner:
-                                    <%= hospital.authorName %><br> Created at:
-                                        <%= hospital.createdAt.toDateString() %>
-                                </div>
+                                <div><i class="fas fa-hospital-alt" id="dp2"></i> Hospital</div>
+
                             </div>
-                            <img class="card-img-top wow animate__animated animate__bounceInUp" src="<%=hospital.picture%>">
+                            <img class="card-img-top" src="<%=hospital.picture%>">
                             <div class="card-header ">
                                 <span class="d-flex justify-content-center"><%= hospital.name %></span>
                             </div>
+                            <button class="btn my-2 container-fluid border bg-light border-5 ">
+                                <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
+                                </h5>
+                            </button>
+                            <div class="container mt-5 p-0 shadow-lg">
+                                <ul class="list-group side-info">
 
-                            <div class="card-footer shadow-md">
-                                <div class="row justify-content-between text-light">
-                                    <span class="col-5 btn btn-light pl-0">
-                                    <form  action="/hospital/<%=hospital._id%>/like" method="POST">
-                                    <button class="container-fluid"><i class="far fa-heart" id="like"></i><br>
-                                   
-                                    <%= hospital.likesNo %> Likes
-                                    </button>
-                                </form> 
-                                </span>
-                                    <span class=" col-6 btn btn-light pl-0 " id="show-comments "> 
-                                    <a href="/hospital/<%= hospital._id%>/show">
-                                        <div class="container-fluid" >
-                                   
-                                    <i class="fas fa-comments" id="comment"></i><br>
-                                   <%= hospital.commentNo %> Comments
-                                </div>
-                                    </a>
-                                    </span>
-                                </div>
+                                    <button class="btn bg-light  list-group-item "> Information </button>
+                                    <b>
+                                    <li class="list-group-item justify-content-between">
+                                        <span class="pull-left text-dark "> <i class="fas fa-lungs-virus"></i> Does treat Corona ? </span> &emsp; <span class="pull-right text-danger"><%=hospital.isCorona%></span>
+                                    </li>
+                                    
+                                    <li class="list-group-item justify-content-between">
+                                        <span class="pull-left text-dark "><i class="fas fa-procedures"></i> Available Beds </span> &emsp; <span class="pull-right text-danger"><%=hospital.availBed%></span>
+                                    </li>
+                                    <li class="list-group-item justify-content-between">
+                                        <span class="pull-left text-dark "><i class="fas fa-rupee-sign"></i> Cost per night </span> &emsp; <span class="pull-right text-danger"><i class="fas fa-rupee-sign"></i> <%=hospital.cost%></span>
+                                    </li>
+                                    
+                                    <li class="list-group-item justify-content-between">
+                                        <span class="pull-left text-dark "> <i class="fas fa-user-md"></i> Total available Doctors </span> &emsp; <span class="pull-right text-danger"><%=hospital.availDoc%></span>
+                                    </li>
+                                    
+                                </b>
+                                </ul>
                             </div>
+
                             <div class="container  m-2 pl-0">
                                 <a href="/hospital/<%= hospital._id%>/show" class="btn btn-info text-light container-fluid">More info </a>
                             </div>

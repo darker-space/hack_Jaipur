@@ -1,40 +1,87 @@
 <%- include("../partials/header1.ejs") %>
     <title> Create hospital!</title>
+    <style>
+        .form-inline input .form-control {
+            width: 50%;
+        }
+    </style>
     <%-include("../partials/header2.ejs")%>
 
         <div class="jumbotron fluid bg-danger text-white display-4 py-4">
             <span class="d-flex justify-content-center">
-         Woh..! Lets create Your hospitalground..!
+         Lets add your hospital..!
       </span>
         </div>
         <div class="container-fluid ">
-            <!-- style="background-image:url(https://images.unsplash.com/photo-1547516961-3e7ed5ec4ca1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80); background-repeat: no-repeat; background-size: cover;"> -->
             <div class="row m-5 p-5">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <form class="text-white" action="/hospital" method="POST">
+                    <form class="" action="/hospital" method="POST">
                         <div class="form-group">
-                            <label>hospitalground-name</label>
-                            <input class="form-control form1 border-dark" type="text" placeholder="hospitalground-name" name="name" required>
+                            <label>Hospital Registration no.</label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="Registration no." name="H[regNo]" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hospital name</label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="hospitalground-name" name="H[name]" required>
                         </div>
                         <div class=" form-group">
                             <label>Image url</label>
-                            <input class="form-control form1 border-dark" type="text" placeholder="image url" name="picture" required>
+                            <input class="form-control form1 border-dark" type="text" placeholder="image url" name="H[picture]" required>
                         </div>
                         <div class="form-group ">
-                            <label>Video url</label>
-                            <input class="form-control form1  border-dark" type="text" placeholder="video url " name="video" required>
+                            <label>Full Address</label>
+                            <div><textarea class="container-fluid" placeholder="Address" name="H[address]" required rows="2" required></textarea></div>
                         </div>
+
+                        <div class="form-group">
+                            <label>Contact no.</label>
+                            <input class="form-control form1 border-dark" type="text" placeholder="Registration no." name="H[phoneNo]" required>
+                        </div>
+
                         <div class="form-group ">
-                            <label>Tell us something about your hospital!</label>
-                            <div><textarea class="container-fluid" placeholder="Write here" name="content" rows="5"></textarea></div>
+                            <label>Facilities available in hospital!</label>
+                            <div><textarea class="container-fluid" placeholder="Write here" name="H[description]" rows="2"></textarea></div>
                         </div>
-                        <div class="mt-2">
-                            <button class="btn btn-danger container-fluid">Submits</button>
+
+                        <div class=" form-inline my-4">
+                            <label><b>Do this hospital treat Corona! </b> </label>
+                            <b><input class="form-control form1 border border-danger ml-5 " type="checkbox"  name="H[isCorona]" value="yes"></b>
+                        </div>
+
+                        <div class=" row my-4 border pb-2">
+                            <div class="col-6">
+                                <label class="mr-4">Total No of Doctors</label>
+                                <input class="form-control form1 border border-dark " type="number" name="H[totalDoc]" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="mr-4">Total avialable Doctors</label>
+                                <input class="form-control form1 border border-dark " type="number" name="H[availDoc]" required>
+                            </div>
+                        </div>
+                        <div class=" row my-4 border pb-2">
+                            <div class="col-6">
+                                <label class="mr-4">Total No of Beds</label>
+                                <input class="form-control form1 border border-dark " type="number" name="H[totalBed]" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="mr-4">Total avialable Beds</label>
+                                <input class="form-control form1 border border-dark " type="number" name="H[availBed]" required>
+                            </div>
+                        </div>
+
+                        <div class="row my-4 ">
+                            <div class="col-6">
+                                <label class="mr-4">Cost of bed per night</label> <br><i class="fas fa-rupee-sign"></i> <input class="form-control form1 border border-dark " type="number " name="H[cost] " required>
+                            </div>
+                        </div>
+
+                        <div class="mt-2 ">
+                            <button class="btn btn-danger container-fluid" type="submit">Submits</button>
                         </div>
                     </form>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-2 "></div>
 
             </div>
         </div>

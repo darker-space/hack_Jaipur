@@ -38,21 +38,43 @@ router.get("/signup", function(req, res) {
 });
 //create
 router.post("/user/signup/", function(req, res) {
-
-    User.register(new User({
+    var user1 = {
         name: req.body.name,
         username: req.body.username,
-        usertype: req.body.signupAs
-    }), req.body.password, function(err, user) {
-        if (err) {
-            console.log(err);
-            res.redirect("/");
-        } else {
-            passport.authenticate("local")(req, res, function() {
+        userType: req.body.signupAs
+    };
+
+
+    if (user1.userType == "doctor") {
+        //console.log("************");
+        user1.age = req.body.age;
+        user1.gender = req.body.gender;
+        user1.specialist = req.body.specialist;
+        user1.qualification = [];
+        if (req.body.MBBS == "yes")
+            user1.qualification.push("MBBS");
+        if (req.body.MD == "yes")
+            user1.qualification.push("MD");
+        if (req.body.DM == "yes")
+            user1.qualification.push("DM");
+
+        user1.experience = req.body.experience;
+        user1.achievements = req.body.achievement;
+    }
+
+    //console.log("user1= ", user1)
+
+    User.register(user1, req.body.password,
+        function(err, user) {
+            if (err) {
+                console.log(err);
                 res.redirect("/");
-            });
-        }
-    });
+            } else {
+                passport.authenticate("local")(req, res, function() {
+                    res.redirect("/");
+                });
+            }
+        });
 
 })
 

@@ -9,6 +9,12 @@ var hospitalSchema = mongoose.Schema({
     picture: String,
     description: String,
     address: String,
+    phoneNo: String,
+
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
 
     totalDoc: Number,
     availDoc: Number,
@@ -23,7 +29,6 @@ var hospitalSchema = mongoose.Schema({
 
     isCorona: { type: String, default: "No" },
 
-    facility: [String],
 
     comment: [commentSchema],
     commentNo: { type: Number, default: 0 },

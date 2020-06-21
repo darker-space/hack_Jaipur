@@ -14,7 +14,7 @@
             <div class="nav navbar-right">
                 <%  if(!currUser){ %>
                     <li class="nav-item">
-                        <a href="/login" class="nav-link"><i class="fas fa-user-astronaut"></i> Login </a>
+                        <a href="/login" class="nav-link"><i class="fas fa-user-nurse"></i>Login </a>
                     </li>
                     <li class="nav-item">
                         <a href="/signup" class="nav-link"><i class="fas fa-user-plus"></i> Signup</a>
@@ -41,7 +41,8 @@
                 <div class="user-sidebar shadow-sm list-group-item ">
                     <div class="row">
                         <div class="col-6">
-                            <i id="dp" class="fas fa-user-astronaut"></i>
+
+                            <i id="dp" class="fas fa-notes-medical"></i>
                         </div>
                         <div class="col-6">
                             <div class="fluid p-2">
@@ -49,13 +50,8 @@
                                 <%  if(!currUser){ %>
                                     User
                                     <% } else { %>
-
-                                        <%if(currUser && currUser.usertype=="user"){ %>
-                                            Traveller
-                                            <% } else{  %>
-                                                Owner
-                                                <% } %>
-                                                    <% } %>
+                                        <%= currUser.userType %>
+                                            <% } %>
 
 
                             </div>

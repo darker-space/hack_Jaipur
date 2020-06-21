@@ -26,7 +26,7 @@ var userSchema = mongoose.Schema({
     specialist: String,
     qualification: [String],
     experience: Number,
-    achievements: String
+    achievement: String
 
 
 })

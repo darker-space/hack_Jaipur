@@ -37,16 +37,9 @@ router.get("/hospital/new", isloggedin, function(req, res) {
 router.post("/hospital/", isloggedin, function(req, res) {
 
         console.log("yo!! " + req.user);
-        var hospital = new Hospital({
-            name: req.body.name,
-            picture: req.body.picture,
-            video: req.body.video,
-            content: req.body.content,
-            authorName: req.user.name,
-            author: req.user
-        });
-
-        Hospital.create(hospital, function(err, hospital) {
+        // var hospital1 = req.body.H;
+        req.body.H.author = req.user;
+        Hospital.create(req.body.H, function(err, hospital) {
             if (err)
                 console.log(err);
             else {
@@ -89,7 +82,7 @@ router.delete("/hospital/:hospital_id", function(req, res) {
     });
 });
 
-//hospital rate
+//hospital like
 router.post("/hospital/:hospital_id/like", isloggedin, function(req, res) {
     Hospital.findById(req.params.hospital_id, function(err, hospital) {
 

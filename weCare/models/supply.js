@@ -5,7 +5,11 @@ var supplySchema = new mongoose.Schema({
     type: String, // sale or demand
     qualityTested: { type: String, default: "No" },
     quantity: { type: Number, default: 0 },
-    specification: String
+    specification: String,
+
+    author: String,
+    author_id: String,
+    phoneNo: String
 });
 
 module.exports = mongoose.model("Supply", supplySchema);

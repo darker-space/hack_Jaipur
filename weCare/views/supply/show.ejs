@@ -11,6 +11,66 @@
             </div>
         </div>
         <hr class="py-1 my-2">
+
+
+        <div class="container">
+            <div class="row mt-5">
+                <% supplyArr.forEach(function(supply){ %>
+                    <% console.log("##### ",supply) %>
+                        <div class="col-lg-6 p-0 m-0">
+                            <div class="card animate__animated animate__bounceInUp shadow-lg wow fadeInUp  m-0 m-md-1 p-0 p-md-3 " id="<%=supply._id %> ">
+                                <div class="m-1 p-2 shadow-sm d-flex justify-content-between align-items-center" id="header">
+                                    <div><i class="fas fa-truck-loading"></i> Seller</div>
+
+                                </div>
+                                <div class="card-header ">
+                                    <span class="d-flex justify-content-center"><%= supply.author %></span>
+                                </div>
+                                <button class="btn my-2 container-fluid border bg-light border-5 ">
+                                <h5><span class="pull-left text-dark "><i class="fas fa-phone"></i> Contact </span> &emsp; <span class="pull-right text-danger"><%=supply.phoneNo%></span>
+                                </h5>
+                            </button>
+
+                                <div class="bg-light p-0 shadow-lg">
+                                    <button class="btn  container-fluid list-group-item text-light " style="background-color:navy;"> For sell </button>
+
+
+
+                                    <ul class="list-group side-info">
+                                        <b>
+                                    <li class="list-group-item justify-content-between my-3" >
+                                       <div class="row">
+                                       <div class="col-4">Name:</div><div class="col-8 text-success"> <%= supply.name %> </div>
+                                       <div class="col-4">Quantity:</div><div class="col-8 text-success"> <%= supply.quantity %></div>
+                                       <div class="col-4">Specification: </div><div class="col-8 text-success"><%= supply.specification %></div>
+                                       </div>
+                                    </li>  
+                                    </b>
+
+                                    </ul>
+                                    <% if(currUser&&currUser._id.equals(supply.author_id)){%>
+
+                                        <div class="col-4">
+                                            <form action="/supply/del/<%=supply._id%>?_method=DELETE" method="POST"><button class="btn btn-danger  container-fluid">Delete</button></form>
+                                        </div>
+                                        <% } %>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                        <% }) %>
+
+
+            </div>
+
+        </div>
+
+        <hr class="py-1 my-2">
+
         <div class="container">
             <div class="row mt-5">
                 <% hospitalArr.forEach(function(hospital){ %>
@@ -40,27 +100,37 @@
                                     <li class="list-group-item justify-content-between my-3" >
                                        <div class="row">
                                        <div class="col-4">Name:</div><div class="col-8 text-success"> <%= hospital.demand[i-1].name %> </div>
-                                       <div class="col-4">Quantity:</div><div class="col-8 text-success"> <%= hospital.demand[i-1].Quantity %></div>
+                                       <div class="col-4">Quantity:</div><div class="col-8 text-success"> <%= hospital.demand[i-1].quantity %></div>
                                        <div class="col-4">Specification: </div><div class="col-8 text-success"><%= hospital.demand[i-1].specification %></div>
                                        </div>
                                     </li>  
                                 </b>
 
-                                    </ul>
-                                    <% } %>
 
-                            </div>
+                                    <% if(currUser&&currUser._id.equals(hospital.author._id)){%>
 
-                            <div class="container  m-2 pl-0">
-                                <a href="/hospital/<%= hospital._id%>/show" class="btn btn-info text-light container-fluid">More info </a>
+                                        <div class="col-4">
+                                            <form action="/hospital/<%=hospital._id %>/supply/<%=hospital.demand[i-1]._id%>?_method=DELETE" method="POST"><button class="btn btn-danger  container-fluid">Delete</button></form>
+                                        </div>
                             </div>
+                            <% } %>
+                                </ul>
+
+
+                                <% } %>
+
+                        </div>
+
+                        <div class="container  m-2 pl-0">
+                            <a href="/hospital/<%= hospital._id%>/show" class="btn btn-info text-light container-fluid">More info </a>
                         </div>
                     </div>
-                    <% }) %>
-
-
             </div>
+            <% }) %>
 
-            <%- include("../partials/footer1.ejs") %>
-                <script type="text/javascript" src="/jsPage/hospital.js"></script>
-                <%- include("../partials/footer2.ejs") %>
+
+        </div>
+
+        <%- include("../partials/footer1.ejs") %>
+            <script type="text/javascript" src="/jsPage/hospital.js"></script>
+            <%- include("../partials/footer2.ejs") %>

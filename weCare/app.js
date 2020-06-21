@@ -21,7 +21,7 @@ var hospitalRoutes = require("./routes/hospital"),
     indexRoutes = require("./routes/index"),
     userRoutes = require("./routes/user"),
     doctorRoutes = require("./routes/doctor"),
-    supplierRoutes = require("./routes/supplier");
+    supplyRoutes = require("./routes/supply");
 
 
 app.set("view engine", "ejs");
@@ -61,7 +61,7 @@ app.use(hospitalRoutes);
 app.use(indexRoutes);
 app.use(userRoutes);
 app.use(doctorRoutes);
-app.use(supplierRoutes);
+app.use(supplyRoutes);
 
 
 //listen

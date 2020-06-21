@@ -8,4 +8,4 @@ var supplySchema = new mongoose.Schema({
     specification: String
 });
 
-module.exports = supplySchema;
+module.exports = mongoose.model("Supply", supplySchema);

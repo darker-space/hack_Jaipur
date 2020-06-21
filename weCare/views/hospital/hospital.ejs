@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/stylesheets/hospital.css">
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
-    <%-include("../partials/header2.ejs")%>
+    <%- include("../partials/header2.ejs")%>
 
         <div class="row p-2 text-light " id="top-row">
             <div class="col-4"><i class="ml-5 fab fa-studiovinari" id="icon-up"></i></div>
@@ -107,7 +107,7 @@
                                 <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
                                 </h5>
                             </button>
-                            <div class="container mt-5 p-0 shadow-lg">
+                            <div class="container p-0 shadow-lg">
                                 <ul class="list-group side-info">
 
                                     <button class="btn bg-light  list-group-item "> Information </button>

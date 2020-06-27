@@ -5,11 +5,7 @@
 
     <%-include("../partials/header2.ejs")%>
 
-        <!-- <div class="m-2 row justify-content-around">
-            <div class="col-8">
-                <a href="/hospital" class="btn btn-info container-fluid"> Back</a>
-            </div>
-        </div> -->
+
 
 
         <hr class="py-1 my-2">
@@ -132,7 +128,7 @@
 
                             <div class="card-footer shadow-md">
                                 <div class="row justify-content-around text-light">
-                                    <span class="col-5 btn btn-light">
+                                    <span class="col-md-5 col-6  btn btn-light">
                                     <form  action="/hospital/<%=hospital._id%>/like" method="POST">
                                     <button class="container-fluid"><i class="far fa-heart" id="like"></i>
                                    
@@ -140,7 +136,7 @@
                                     </button>
                                 </form> 
                                 </span>
-                                    <span class="col-5 btn btn-light" id="show-comments">
+                                    <span class="col-md-5 col-6 btn btn-light" id="show-comments">
                                    
                                     <i class="fas fa-comments" id="comment"></i>
                                     <%= hospital.commentNo %> Comments
@@ -181,10 +177,10 @@
 
                             <% if(currUser&&currUser._id.equals(hospital.author._id)){%>
                                 <div class="m-4 row justify-content-around">
-                                    <div class="col-4">
+                                    <div class="col-md-4 col-6">
                                         <a href="/hospital/<%=hospital._id %>/edit" class="btn btn-warning text-dark container-fluid">Edit</a>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-md-4 col-6">
                                         <form action="/hospital/<%=hospital._id %>?_method=DELETE" method="POST"><button class="btn btn-danger  container-fluid">Delete</button></form>
                                     </div>
                                 </div>

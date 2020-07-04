@@ -8,6 +8,7 @@ var userSchema = mongoose.Schema({
     name: String,
     username: String, //email
     password: String,
+    phoneNo: Number,
 
     userType: { type: String, default: "patient" }, //doctor, patient, supplier,hospital owner
 

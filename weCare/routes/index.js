@@ -41,7 +41,8 @@ router.post("/user/signup/", function(req, res) {
     var user1 = {
         name: req.body.name,
         username: req.body.username,
-        userType: req.body.signupAs
+        userType: req.body.signupAs,
+        phoneNo: req.body.phoneNo
     };
 
 

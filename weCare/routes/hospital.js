@@ -84,6 +84,21 @@ router.get("/hospital/:hospital_id/edit", isloggedin, function(req, res) {
         }
     });
 });
+
+//hospital edit2
+router.get("/hospital/:hospital_id/edit2", isloggedin, function(req, res) {
+    Hospital.findById(req.params.hospital_id, function(err, hospital) {
+
+        if (err) {
+            res.redirect("back");
+        } else {
+            if (req.user && hospital.author.equals(req.user._id)) {
+                res.render("hospital/edit2", { h: hospital });
+            } else
+                res.redirect("back");
+        }
+    });
+});
 //hospital-update
 
 router.put("/hospital/:hospital_id/", isloggedin, function(req, res) {
@@ -96,6 +111,7 @@ router.put("/hospital/:hospital_id/", isloggedin, function(req, res) {
     Hospital.findByIdAndUpdate(req.params.hospital_id, req.body.H, function(err, hospital) {
 
         req.body.H.author = req.user;
+        req.body.H.createdAt = Date.now();
         hospital.updateOne(req.body.H, function() {});
         hospital.save(function(err, hospital) {
             if (err) {

@@ -2,6 +2,7 @@ var mongoose = require("mongoose");
 
 var supplySchema = new mongoose.Schema({
     name: String,
+    email: String,
     type: String, // sale or demand
     qualityTested: { type: String, default: "No" },
     quantity: { type: Number, default: 0 },

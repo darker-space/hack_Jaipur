@@ -16,7 +16,7 @@
             <div class="row m-5 p-5">
                 <div class="col-2"></div>
                 <div class="col-8">
-                    <form class="" action="/hospital" method="POST">
+                    <form class="" action="/hospital" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Hospital Registration no.</label>
                             <input class="form-control form1 border-dark" type="text" placeholder="Registration no." name="H[regNo]" required>
@@ -26,8 +26,12 @@
                             <input class="form-control form1 border-dark" type="text" placeholder="hospitalground-name" name="H[name]" required>
                         </div>
                         <div class=" form-group">
-                            <label>Image url</label>
-                            <input class="form-control form1 border-dark" type="text" placeholder="image url" name="H[picture]" required>
+                            <label>Upload Images (max 3)</label>
+                            <input class="form-control form1 " type="file" name="H[img]" multiple required>
+                        </div>
+                        <div class=" form-group">
+                            <label>Upload a video</label>
+                            <input class="form-control form1 " type="file" name="H[vid]">
                         </div>
                         <div class="form-group ">
                             <label>Full Address</label>
@@ -36,7 +40,7 @@
 
                         <div class="form-group">
                             <label>Contact no.</label>
-                            <input class="form-control form1 border-dark" type="text" placeholder="Registration no." name="H[phoneNo]" required>
+                            <input class="form-control form1 border-dark" type="text" placeholder="Contact no." name="H[phoneNo]" required>
                         </div>
 
                         <div class="form-group ">

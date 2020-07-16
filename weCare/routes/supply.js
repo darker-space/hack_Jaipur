@@ -99,6 +99,7 @@ router.post("/supply/sell", isloggedin, function(req, res) {
         console.log("*******", req.body.s)
         req.body.s.type = "Sell";
         req.body.s.author = req.user.name;
+        req.body.s.email = req.user.username;
         req.body.s.author_id = req.user._id;
         req.body.s.phoneNo = req.user.phoneNo;
         console.log("*******", req.body.s)

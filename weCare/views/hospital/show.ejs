@@ -99,15 +99,25 @@
 
                                 <!-- The slideshow -->
                                 <div class="carousel-inner">
+
                                     <div class="carousel-item active">
-                                        <img class="card-img-top" src="<%=hospital.picture%>">
+                                        <img class="card-img-top" src="/<%= hospital.img_url[0] %> ">
                                     </div>
-                                    <!-- <div class="carousel-item">
-                                <div class="container-fluid">
+                                    <%for(var ii=1;ii<hospital.img_url.length;ii++){ %>
+                                        <div class="carousel-item ">
+                                            <img class="card-img-top" src="/<%= hospital.img_url[ii] %> ">
+                                        </div>
+                                        <% } %>
+
+                                            <div class="carousel-item ">
+                                                <video class="container-fluid" controls autoplay>
+                                                    <source src="/<%=  hospital.vid_url%> " type="video/mp4" />
+                                                  </video>
+                                            </div>
 
                                 </div>
-                            </div> -->
-                                </div>
+
+
 
                                 <!-- Left and right controls -->
                                 <a class="carousel-control-prev" href="#demo" data-slide="prev">
@@ -129,7 +139,7 @@
                             <div class="card-footer shadow-md">
                                 <div class="row justify-content-around text-light">
                                     <span class="col-md-5 col-6  btn btn-light">
-                                    <form  action="/hospital/<%=hospital._id%>/like" method="POST">
+                                    <form  action="/hospital/<%=hospital._id%>/like" method="POST" >
                                     <button class="container-fluid"><i class="far fa-heart" id="like"></i>
                                    
                                     <%= hospital.likesNo %> Likes

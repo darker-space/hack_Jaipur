@@ -6,7 +6,8 @@ var supplySchema = require("./supplySchema.js");
 var hospitalSchema = mongoose.Schema({
     regNo: String,
     name: String,
-    picture: String,
+    img_url: [String],
+    vid_url: String,
     description: String,
     address: String,
     phoneNo: String,
@@ -33,8 +34,8 @@ var hospitalSchema = mongoose.Schema({
     comment: [commentSchema],
     commentNo: { type: Number, default: 0 },
 
-    ratingArr: [String],
-    rating: { type: Number, default: 0 },
+    likes: [String],
+    likesNo: { type: Number, default: 0 },
 
     demand: [supplySchema],
 

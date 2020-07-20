@@ -1,0 +1,55 @@
+body {
+    background-size: cover;
+    /* background-repeat: repeat-x; */
+    /* background-position: fixed; */
+    background-image: url(https://images.unsplash.com/photo-1544006658-89bde88e87c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+}
+
+.dp {
+    padding: 3px;
+    border-radius: 50%;
+    max-height: 400px;
+}
+
+.dp-bg {
+    background-color: black;
+    border: 2px solid rgb(6, 1, 75);
+}
+
+.side1 {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+}
+
+.side {
+    background: rgb(0, 0, 0);
+    border: 2px solid rgb(6, 1, 75);
+    margin-top: 1px;
+    margin-bottom: 1px;
+    color: white;
+    font-weight: 700;
+    /* text-shadow: 1px 2px blue; */
+}
+
+.side:hover {
+    color: yellow;
+    font-weight: 720;
+}
+
+.second {
+    font-family: 'Montserrat', sans-serif;
+    width: auto;
+    letter-spacing: 1px;
+    background: white;
+    height: auto;
+    padding: 4em;
+    margin-right: 2.5em;
+    margin-left: 4em;
+    border-radius: 1em;
+    border: solid 5px rgba(220, 20, 60, 0);
+}
+
+.second:hover {
+    border: solid 5px rgb(220, 20, 60);
+}

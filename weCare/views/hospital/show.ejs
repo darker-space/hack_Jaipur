@@ -16,17 +16,17 @@
                 <div class="container shadow-lg ">
                     <div><button class="btn bg-light container-fluid my-2"> Map </button></div>
                     <iframe class="container-fluid" width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=<%=hospital.address%>&key=AIzaSyB0-K0lp_Ej9tIERX9oxZDNigwR73HNt-Q" allowfullscreen></iframe>
-                    <button class="btn my-2 container-fluid border bg-light border-5 ">
-                        <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
+                    <div class="my-2 container-fluid border bg-light border-5 text-center">
+                        <h5><span class=" text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class=" text-danger"><%=hospital.address%></span>
                         </h5>
-                    </button>
+                    </div>
                 </div>
                 <div class="container mt-5 p-0 shadow-lg">
                     <ul class="list-group side-info">
 
                         <button class="btn btn-success list-group-item bg-success">info </button>
                         <b>
-                        <li class="list-group-item justify-content-between">
+                        <li class="list-group-item justify-content-between ">
                             <span class="pull-left text-dark "> <i class="fas fa-lungs-virus"></i> Does treat Corona ? </span> &emsp; <span class="pull-right text-danger"><%=hospital.isCorona%></span>
                         </li>
                         <li class="list-group-item justify-content-between">
@@ -109,11 +109,13 @@
                                         </div>
                                         <% } %>
 
-                                            <div class="carousel-item ">
-                                                <video class="container-fluid" controls autoplay muted>
+                                            <% if( hospital.vid_url){ %>
+                                                <div class="carousel-item ">
+                                                    <video class="container-fluid" controls autoplay muted>
                                                     <source src="/<%=  hospital.vid_url%> " type="video/mp4" />
                                                   </video>
-                                            </div>
+                                                </div>
+                                                <% } %>
 
                                 </div>
 
@@ -129,7 +131,7 @@
 
                             </div>
 
-                            <div class="card-header ">
+                            <div class="card-header text-center">
                                 <span class="d-flex justify-content-center"><%= hospital.name %></span>
                             </div>
                             <div class="card-body ">

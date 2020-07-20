@@ -6,7 +6,7 @@
         <div class="container">
             <div class="navbar-header ">
                 <li class="nav-item">
-                    <a href="/hospital" class="nav-link navbar-brand " style="font-size: 2em;"> <span id="brandd"><i class="fas fa-heartbeat"></i> We Care</a></span>
+                    <a href="/hospital" class="nav-link navbar-brand " style="font-size: 2em; letter-spacing:2.1px;"> <span id="brandd"><i class="fas fa-heartbeat"></i> We Care</a></span>
                 </li>
             </div>
 
@@ -85,38 +85,36 @@
                         </div>
                     </div>
                 </div>
-                <%if(currUser){ %>
+
+
+
+                <% if(currUser&&currUser.userType=="owner"){ %>
                     <div class="shadow-sm list-group-item ">
-                        <a href="/user/<%=currUser._id%>/">View your Profile</a>
+                        <a href="/hospital/new" class="nav-link"><i class="fab fa-opencart"></i> Add hospital </a></div>
+                    <div class="shadow-sm list-group-item "> <a href="/supply/view" class="nav-link"><i class="fas fa-box-open"></i> View product </a></div>
+                    <div class="shadow-sm list-group-item "> <a href="/supply/require" class="nav-link"><i class="fas fa-truck-loading"></i> Require product </a>
+
                     </div>
                     <% } %>
-
-
-                        <% if(currUser&&currUser.userType=="owner"){ %>
+                        <% if(currUser&&currUser.userType=="supplier"){ %>
                             <div class="shadow-sm list-group-item ">
-                                <a href="/hospital/new" class="nav-link"><i class="fab fa-opencart"></i> Add hospital </a></div>
-                            <div class="shadow-sm list-group-item "> <a href="/supply/view" class="nav-link"><i class="fas fa-box-open"></i> View product </a></div>
-                            <div class="shadow-sm list-group-item "> <a href="/supply/require" class="nav-link"><i class="fas fa-truck-loading"></i> Require product </a>
-
+                                <a href="/supply/view" class="nav-link"><i class="fas fa-box-open"></i> View product </a>
+                            </div>
+                            <div class="shadow-sm list-group-item ">
+                                <a href="/supply/sell" class="nav-link"><i class="fas fa-truck-loading"></i> Sell product </a>
                             </div>
                             <% } %>
-                                <% if(currUser&&currUser.userType=="supplier"){ %>
+                                <%if(currUser&&currUser.usertype!="user"){%>
                                     <div class="shadow-sm list-group-item ">
-                                        <a href="/supply/view" class="nav-link"><i class="fas fa-box-open"></i> View product </a>
+                                        <a href="/user/hospital"> See your added hospitals!</a>
                                     </div>
-                                    <div class="shadow-sm list-group-item ">
-                                        <a href="/supply/sell" class="nav-link"><i class="fas fa-truck-loading"></i> Sell product </a>
-                                    </div>
-                                    <% } %>
-                                        <%if(currUser&&currUser.usertype!="user"){%>
-                                            <div class="shadow-sm list-group-item ">
-                                                <a href="/user/<%=currUser._id%>/#hospital"> See your added hospitals!</a>
-                                            </div>
 
-                                            <% } %>
-                                                <div class="shadow-sm list-group-item ">
-                                                    About
-                                                </div>
+                                    <% } %>
+                                        <a href="/about/">
+                                            <div class="shadow-sm list-group-item ">
+                                                About
+                                            </div>
+                                        </a>
 
             </div>
 

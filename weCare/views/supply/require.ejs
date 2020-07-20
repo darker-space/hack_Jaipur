@@ -23,13 +23,13 @@
 
                                 </div>
                                 <img class="card-img-top" src="<%=hospital.picture%>">
-                                <div class="card-header ">
-                                    <span class="d-flex justify-content-center"><%= hospital.name %></span>
+                                <div class="text-center">
+                                    <h6><span class=" justify-content-center"><%= hospital.name %></span></h6>
                                 </div>
-                                <button class="btn my-2 container-fluid border bg-light border-5 ">
-                                <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
-                                </h5>
-                            </button>
+                                <button class=" my-2 container-fluid border bg-light border-5 ">
+                                    <h6><span class="text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class=" text-danger"><%=hospital.address%></span>
+                                    </h6>
+                                </button>
                                 <div class="container p-0 shadow-lg">
                                     <ul class="list-group side-info">
 
@@ -55,7 +55,7 @@
                                 </div>
 
                                 <div class="container  m-2 pl-0">
-                                    <a href="/hospital/<%= hospital._id%>/show" class="btn btn-info text-light container-fluid">More info </a>
+                                    <a href="/hospital/<%=hospital._id%>/demand" class="btn btn-info text-light container-fluid">Choose This ! </a>
                                 </div>
                             </div>
                         </div>

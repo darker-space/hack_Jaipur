@@ -1,5 +1,5 @@
 <%- include("../partials/header1.ejs") %>
-    <title>Chill and relax !</title>
+    <title>We Care !</title>
     <link rel="stylesheet" href="/stylesheets/hospital.css">
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
@@ -70,19 +70,21 @@
 
                             </div>
                             <img class="card-img-top" src="/<%= hospital.img_url[0] %> ">
-                            <div class="card-header ">
-                                <span class="d-flex justify-content-center"><%= hospital.name %></span>
+                            <div class="text-center">
+                                <h6 class=" justify-content-center">
+                                    <%= hospital.name %>
+                                </h6>
                             </div>
-                            <button class="btn my-2 container-fluid border bg-light border-5 ">
-                                <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
-                                </h5>
+                            <button class=" my-2 container-fluid border bg-light border-5 ">
+                                <h6><span class="text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class=" text-danger"><%=hospital.address%></span>
+                                </h6>
                             </button>
                             <div class="container p-0 shadow-lg">
                                 <ul class="list-group side-info">
 
                                     <button class="btn bg-light  list-group-item "> Information </button>
                                     <b>
-                                    <li class="list-group-item justify-content-between">
+                                    <li class="list-group-item justify-content-between border-warning">
                                         <span class="pull-left text-dark "> <i class="fas fa-lungs-virus"></i> Does treat Corona ? </span> &emsp; <span class="pull-right text-danger"><%=hospital.isCorona%></span>
                                     </li>
                                     

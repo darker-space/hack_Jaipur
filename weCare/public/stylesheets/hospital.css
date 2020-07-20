@@ -11,6 +11,11 @@
     font-size: 2.2em;
 }
 
+h6 {
+    font-size: 1.2em;
+    color: #1d6f7e;
+}
+
 #header {
     font-size: 0.9em;
     color: rgb(138, 138, 138);

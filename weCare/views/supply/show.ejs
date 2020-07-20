@@ -1,5 +1,5 @@
 <%- include("../partials/header1.ejs") %>
-    <title>Chill and relax !</title>
+    <title>We Care !</title>
     <link rel="stylesheet" href="/stylesheets/hospital.css">
     <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
@@ -95,27 +95,28 @@
         <div class="container">
             <div class="row mt-5">
                 <% hospitalArr.forEach(function(hospital){ %>
-                    <div class="col-lg-6 p-2 ">
-                        <div class="card animate__animated animate__bounceInUp shadow-lg wow fadeInUp  m-0 m-md-1 p-0 p-md-3 " id="supp3">
-                            <div class="m-1 p-2 shadow-sm d-flex justify-content-between align-items-center" id="header">
-                                <div><i class="fas fa-hospital-alt" id="dp2"></i> Hospital</div>
+                    <% if(hospital.demand.length >0) {%>
+                        <div class="col-lg-6 p-2 ">
+                            <div class="card animate__animated animate__bounceInUp shadow-lg wow fadeInUp  m-0 m-md-1 p-0 p-md-3 " id="supp3">
+                                <div class="m-1 p-2 shadow-sm d-flex justify-content-between align-items-center" id="header">
+                                    <div><i class="fas fa-hospital-alt" id="dp2"></i> Hospital</div>
 
-                            </div>
-                            <div class="card-header ">
-                                <span class="d-flex justify-content-center"><%= hospital.name %></span>
-                            </div>
-                            <button class="btn my-2 container-fluid border bg-light border-5 ">
-                                <h5><span class="pull-left text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class="pull-right text-danger"><%=hospital.address%></span>
+                                </div>
+                                <div class="card-header ">
+                                    <span class="justify-content-center"><%= hospital.name %></span>
+                                </div>
+                                <button class=" text-center my-2 container-fluid border bg-light border-5 ">
+                                <h5><span class=" text-dark "><i class="fas fa-map-marked"></i> Address </span> &emsp; <span class=" text-danger"><%=hospital.address%></span>
                                 </h5>
                             </button>
-                            <li class="list-group-item justify-content-between">
-                                <span class="pull-left text-dark "><i class="fas fa-phone"></i> Phone no </span> &emsp; <span class="pull-right "><%=hospital.phoneNo%></span>
-                            </li>
-                            <div class="bg-light p-0 shadow-lg">
-                                <button class="btn bg-danger container-fluid list-group-item "> Demand of </button>
+                                <li class="list-group-item justify-content-between">
+                                    <span class="pull-left text-dark "><i class="fas fa-phone"></i> Phone no </span> &emsp; <span class="pull-right "><%=hospital.phoneNo%></span>
+                                </li>
+                                <div class="bg-light p-0 shadow-lg">
+                                    <button class="btn bg-danger container-fluid list-group-item "> Demand of </button>
 
-                                <% for(var i=1;i<=hospital.demand.length;i++){%>
-                                    <b>
+                                    <% for(var i=1;i<=hospital.demand.length;i++){%>
+                                        <b>
                                         <div class="border border-secondary">
                                     <ul class="list-group  cotainer my-3 " id="supp">
                                        
@@ -141,18 +142,18 @@
                                 </div>
                                 </b>
 
-                                    <% } %>
-                            </div>
+                                        <% } %>
+                                </div>
 
-                            <div class="container  m-2 pl-0">
-                                <a href="/hospital/<%= hospital._id%>/show" class="btn btn-info text-light container-fluid">Hospital info </a>
+                                <div class="container  m-2 pl-0">
+                                    <a href="/hospital/<%= hospital._id%>/show" class="btn btn-info text-light container-fluid">Hospital info </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
-
-                    <% }) %>
+                        <% } %>
+                            <% }) %>
             </div>
 
         </div>

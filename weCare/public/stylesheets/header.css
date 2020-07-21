@@ -126,7 +126,7 @@ a:hover {
 
 @media only screen and (max-width: 450px) {
     #bdy #mainbody {
-        margin-top: 50px;
+        margin-top: 150px;
     }
     #bdy.side #sidenav {
         width: 100%;

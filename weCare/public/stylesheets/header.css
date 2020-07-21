@@ -19,10 +19,6 @@ a:hover {
     color: #3f0e40;
 }
 
-.navbar-right .nav-item:hover {
-    font-size: 1.2em;
-}
-
 #brandd {
     color: #3f0e40;
     font-family: 'MuseoModerno', cursive;
@@ -88,6 +84,9 @@ a:hover {
         margin-left: 20%;
         width: 80%;
     }
+    .navbar-right .nav-item:hover {
+        font-size: 1.2em;
+    }
 }
 
 @media only screen and (max-width: 900px),
@@ -104,9 +103,31 @@ a:hover {
         padding-left: 4px;
         padding-right: 4px;
     }
+    /* .navbar-right .nav-item:hover {
+        font-size: 1.2em;
+    } */
 }
 
 @media only screen and (max-width: 600px) {
+    #bdy.side #sidenav {
+        width: 100%;
+        position: fixed;
+        margin-top: 20px;
+    }
+    #bdy.side #mainbody {
+        /* margin-left: 20%; */
+        width: 0%;
+        display: none;
+    }
+    #brandd {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #bdy #mainbody {
+        margin-top: 50px;
+    }
     #bdy.side #sidenav {
         width: 100%;
         position: fixed;

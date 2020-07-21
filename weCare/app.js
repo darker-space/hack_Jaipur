@@ -6,11 +6,14 @@ var express = require("express"),
     bodyParser = require("body-parser"),
     passport = require("passport"),
     localStrategy = require("passport-local"),
-    passportLocalMongooe = require("passport-local-mongoose");
-
+    passportLocalMongooe = require("passport-local-mongoose"),
+    connectDB = require("./DB/connection");
 var app = express();
 
-mongoose.connect("mongodb://localhost/hospital", { useNewUrlParser: true, useUnifiedTopology: true });
+connectDB();
+// mongoose.connect("mongodb://localhost/hospital", { useNewUrlParser: true, useUnifiedTopology: true });
+
+
 //models
 var User = require("./models/user.js"),
     Hospital = require("./models/hospital.js"),
@@ -74,6 +77,6 @@ app.use(supplyRoutes);
 // })
 
 
-app.listen(process.env.PORT, process.env.IP, function() {
+app.listen(3000 || process.env.PORT, process.env.IP, function() {
     console.log("Server started!......");
 })

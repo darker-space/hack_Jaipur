@@ -117,6 +117,9 @@ a:hover {
         width: 0%;
         display: none;
     }
+    #brandd {
+        font-size: 1em;
+    }
 }
 
 .main {

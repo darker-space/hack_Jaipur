@@ -39,13 +39,11 @@ body {
 
 .second {
     font-family: 'Montserrat', sans-serif;
-    width: auto;
     letter-spacing: 1px;
     background: white;
-    height: auto;
-    padding: 4em;
-    margin-right: 2.5em;
-    margin-left: 4em;
+    /* padding: 4em; */
+    /* margin-right: 2.5em;
+    margin-left: 4em; */
     border-radius: 1em;
     border: solid 5px rgba(220, 20, 60, 0);
 }

@@ -1,15 +1,18 @@
 <%- include("../partials/header1.ejs") %>
     <%-include("../partials/header2.ejs")%>
 
-        <div class="jumbotron fluid  text-white display-4 py-4" style="background-color:rgb(34, 182, 169);">
-            <span class="d-flex justify-content-center">
-         Sell your supplies here..!
-      </span>
+        <div class="jumbotron fluid  text-white  py-4" style="background-color:rgb(34, 182, 169);">
+            <span class="d-flex d-lg-none justify-content-center">
+         <h4>Sell your supplies here..!</h4>
+     </span>
+            <span class="d-none d-lg-flex display-4 justify-content-center">
+            Sell your supplies here..!
+    </span>
         </div>
         <div class="container-fluid ">
-            <div class="row m-5 p-5">
-                <div class="col-2"></div>
-                <div class="col-8">
+            <div class="row m-lg-5 p-lg-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 col-12">
                     <form class="" action="/supply/sell/" method="POST">
                         <div class="form-group">
                             <label>Name of supply for sell</label>
@@ -34,7 +37,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-2 "></div>
+                <div class="col-lg-2 "></div>
 
             </div>
         </div>

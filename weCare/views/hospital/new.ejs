@@ -7,15 +7,18 @@
     </style>
     <%-include("../partials/header2.ejs")%>
 
-        <div class="jumbotron fluid bg-danger text-white display-4 py-4">
-            <span class="d-flex justify-content-center">
-         Lets add your hospital..!
+        <div class="jumbotron fluid bg-danger text-white  py-4">
+            <span class="d-flex d-lg-none justify-content-center">
+         <h4>Lets add your hospital..!</h4>
       </span>
+            <span class="d-none d-lg-flex display-4 justify-content-center">
+        Lets add your hospital..!
+     </span>
         </div>
         <div class="container-fluid ">
-            <div class="row m-5 p-5">
-                <div class="col-2"></div>
-                <div class="col-8">
+            <div class="row m-lg-5 p-lg-5">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 col-12">
                     <form class="" action="/hospital" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Hospital Registration no.</label>
@@ -85,7 +88,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-2 "></div>
+                <div class="col-lg-2 "></div>
 
             </div>
         </div>

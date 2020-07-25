@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-var URI = "mongodb+srv://aakash:aakash@wecaredatabase.61czq.mongodb.net/weCareDatabase?retryWrites=true&w=majority";
+var URI = "mongodb+srv://<username>:<password>@wecaredatabase.61czq.mongodb.net/weCareDatabase?retryWrites=true&w=majority";
 
 const connectDB = async() => {
     await mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true });
